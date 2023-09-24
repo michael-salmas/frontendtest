@@ -47,7 +47,7 @@ const coordinatesStore = useCoordinatesStore()
   /* scroll bar */
   scrollbar-width: thin;
   scrollbar-color: #5BC69B #CCFECD;
-  /* Border radius of scroll bar */
+
   &::-webkit-scrollbar {
     width: 8px;
   }

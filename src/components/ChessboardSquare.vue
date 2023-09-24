@@ -6,7 +6,7 @@
       `${(props.row + props.column) % 2 === 0 ? 'light-square' : 'dark-square'}`,
       `${lastClickedStore.LastClickedLabel == (String(props.column) + String(props.row)) ? 'last-clicked' : ''}`,
     ]"
-    @click="handleClick()"
+    @click="chessSquareClick()"
   >
     <div
       v-if="props.row === 8 && props.column === 1"
@@ -34,7 +34,7 @@ import { useLastClickedStore } from '@/stores/lastClicked';
 const coordinatesStore = useCoordinatesStore()
 const lastClickedStore = useLastClickedStore()
 
-function handleClick() {
+function chessSquareClick() {
   coordinatesStore.addLabel(String.fromCharCode(96 + props.column) + (9 - props.row));
   lastClickedStore.setLastClicked(String(props.column) + String(props.row));
 }
@@ -54,9 +54,11 @@ const props = defineProps<{
   .dark-square{
     background-color: #79AF99;
   }
+
   .light-square{
     background-color: #C5F6D4;
   }
+
   .last-clicked.light-square{
     background-color: #9e2aab; 
   }
@@ -70,6 +72,7 @@ const props = defineProps<{
   .dark-square{
     background-color: #5BC69B;
   }
+
   .light-square{
     background-color: #CCFECD;
   }

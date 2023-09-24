@@ -7,14 +7,14 @@
     class="app"
     >
       <Chessboard />
-      <ToolBar />
+      <SideBar />
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import Chessboard from './components/ChessboardBoard.vue'
-import ToolBar from './components/ToolBar.vue'
+import SideBar from './components/SideBar.vue'
 import { useThemeStore } from './stores/theme'
 
 const themeStore = useThemeStore()
@@ -31,18 +31,13 @@ const themeStore = useThemeStore()
   place-items: center;
   gap: 40px;
 
-  /* height: 100vh;
-  width: 100vw; */
-
   font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 
   @media screen and (max-width: 600px) {
     flex-direction: column;
-    gap: 20px;
+    gap: 40px;
   }
-    
-  
 }
 
 .background{

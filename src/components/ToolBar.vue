@@ -1,47 +1,35 @@
 <template>
-  <div 
-    class="info-panel"
-  >
-    <div class="toolbar">
-      <div 
+  <div class="toolbar">
+    <div 
         class="theme-selector"
-      >  
-        <lightIcon
-        width="27px"
-        height="27px"
-        v-if = "themeStore.getTheme === 'dark-theme'" 
-        @click = "themeStore.toggleTheme()"
-        />
-        <darkIcon
-        width="27px"
-        height="27px"
-        v-else
-        @click = "themeStore.toggleTheme()"
-        />
-      </div>
-      
-      <button
-      @click="
-      coordinatesStore.clearLabel();
-      lastClickedStore.clearLastClicked()
-      "
-      class="clear-button"
-      >
-      Clear
-      </button>
-      <div class="counter">
-        {{ coordinatesStore.labelCount }}
-      </div> 
+    >  
+      <lightIcon
+      width="27px"
+      height="27px"
+      v-if = "themeStore.getTheme === 'dark-theme'" 
+      @click = "themeStore.toggleTheme()"
+      />
+      <darkIcon
+      width="27px"
+      height="27px"
+      v-else
+      @click = "themeStore.toggleTheme()"
+      />
     </div>
     
-    <HistoryList />
-
+    <button
+    @click="handleClear()"
+    class="clear-button"
+    >
+      Clear
+    </button>
+    <div class="counter">
+      {{ coordinatesStore.labelCount }}
+    </div> 
   </div>
 </template>
-
+  
 <script setup lang="ts">
-import HistoryList from './HistoryList.vue'
-
 import { useCoordinatesStore } from '@/stores/coordinates'
 import { useLastClickedStore } from '@/stores/lastClicked'
 import { useThemeStore } from '@/stores/theme'
@@ -53,36 +41,14 @@ const coordinatesStore = useCoordinatesStore()
 const lastClickedStore = useLastClickedStore()
 const themeStore = useThemeStore()
 
+function handleClear() {
+  coordinatesStore.clearLabel();
+  lastClickedStore.clearLastClicked();
+}
 
 </script>
 
 <style scoped lang="scss">
-.dark {
-  .info-panel{
-    background-color: rgb(124, 121, 121);
-  }
-}
-
-.light {
-  .info-panel{
-    background-color: rgb(189, 189, 189);
-  }
-}
-
-.info-panel{
-  display: flex;
-  flex-direction: column;
-  
-  height: calc(min(90vw,90vh));
-  width: 300px;  
-  border-radius: 20px;
-
-  @media screen and (max-width: 600px) {
-    width: calc(min(90vw,90vh));
-    height: 200px;
-    flex-direction: row;
-  }
-}
 .toolbar{
   display: flex;
   place-content: space-around;
@@ -100,6 +66,7 @@ const themeStore = useThemeStore()
 .theme-selector{
   width: 42px;
   text-align: right;
+  cursor: pointer;
 }
 
 .counter{
@@ -108,7 +75,6 @@ const themeStore = useThemeStore()
 
   @media screen and (max-width: 600px) {
     text-align: right;
-    
   }
 }
 
@@ -126,9 +92,4 @@ const themeStore = useThemeStore()
     transition: none;
   }
 }
-
-.theme-selector{
-  cursor: pointer;
-}
-
 </style>
