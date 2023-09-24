@@ -32,8 +32,6 @@ import ChessboardSquare from './ChessboardSquare.vue'
 
   min-width: calc(min(90vw,90vh));
   min-height: calc(min(90vw,90vh));
-
-  font-family: 'Poppins', sans-serif;
 }
 
 </style>

@@ -31,7 +31,6 @@ const themeStore = useThemeStore()
   place-items: center;
   gap: 40px;
 
-  font-family: 'Poppins', sans-serif;
   font-size: 1rem;
 
   @media screen and (max-width: 600px) {

@@ -57,7 +57,7 @@ function chessSquareClick() {
   }
 
   .light-square{
-    background-color: #C5F6D4;
+    background-color: #CCFECD;
   }
 
   .last-clicked.light-square{
@@ -95,17 +95,6 @@ function chessSquareClick() {
     filter: brightness(0.8);
     transition: none;
   }
-}
-
-.dark-square{
-  background-color: rgb(91, 198, 155); // #5BC69B
-  // background-color: rgb(28, 108, 6); 
-
-}
-
-.light-square{
-  background-color: rgb(204, 254, 205); // #CCFECD
-  // background-color: rgb(117, 155, 117);
 }
 
 .bottom{

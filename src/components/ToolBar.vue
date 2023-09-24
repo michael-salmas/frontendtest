@@ -17,12 +17,12 @@
       />
     </div>
     
-    <button
+    <div
     @click="handleClear()"
     class="clear-button"
     >
       Clear
-    </button>
+    </div>
     <div class="counter">
       {{ coordinatesStore.labelCount }}
     </div> 
@@ -49,6 +49,12 @@ function handleClear() {
 </script>
 
 <style scoped lang="scss">
+.dark{
+  .counter{
+    color: white;
+  }
+}
+
 .toolbar{
   display: flex;
   place-content: space-around;
@@ -65,7 +71,9 @@ function handleClear() {
 
 .theme-selector{
   width: 42px;
-  text-align: right;
+  display: flex;
+  align-items: center;
+  justify-content: end;
   cursor: pointer;
 }
 
@@ -80,7 +88,7 @@ function handleClear() {
 
 .clear-button{
   font-size: 1.2rem;
-  background-color: rgb(218, 255, 203);
+  background-color: #CCFECD;
   border-radius: 10px;
   border: none;
   padding: 5px;
