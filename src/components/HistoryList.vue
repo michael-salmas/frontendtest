@@ -15,6 +15,7 @@
 import { useCoordinatesStore } from '@/stores/coordinates'
 
 const coordinatesStore = useCoordinatesStore()
+
 </script>
 
 <style scoped lang="scss">
@@ -30,6 +31,7 @@ const coordinatesStore = useCoordinatesStore()
     background-color: #a4a4a4;
   }
 }
+
 .item-list{
   margin: 15px 10px 10px 10px;
   height: 100%;
@@ -80,4 +82,5 @@ const coordinatesStore = useCoordinatesStore()
   border-radius: 20px;
 
 }
+
 </style>

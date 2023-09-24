@@ -4,7 +4,6 @@
   >
     <ToolBar />
     <HistoryList />
-
   </div>
 </template>
 

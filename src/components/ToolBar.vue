@@ -86,10 +86,11 @@ function handleClear() {
   padding: 5px;
   cursor: pointer;
   transition: ease-in-out 0.3s;
-
+  
   &:hover{
     filter: brightness(0.8);
     transition: none;
   }
 }
+
 </style>

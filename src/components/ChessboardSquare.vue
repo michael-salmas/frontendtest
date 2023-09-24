@@ -11,18 +11,18 @@
     <div
       v-if="props.row === 8 && props.column === 1"
       class="top bottom"
-      :data-letter-label="String.fromCharCode(96 + props.column)"
-      :data-number-label="9 - props.row"
+      :data-letter-label="letterLabel"
+      :data-number-label="numberLabel"
     />
     <div
       v-else-if="props.column === 1"
       class="top"
-      :data-number-label="9 - props.row"
+      :data-number-label="numberLabel"
     />
     <div
       v-else-if="props.row === 8"
       class="bottom"
-      :data-letter-label="String.fromCharCode(96 + props.column)"
+      :data-letter-label="letterLabel"
     />
   </div>
 </template>
@@ -34,18 +34,19 @@ import { useLastClickedStore } from '@/stores/lastClicked';
 const coordinatesStore = useCoordinatesStore()
 const lastClickedStore = useLastClickedStore()
 
-function chessSquareClick() {
-  coordinatesStore.addLabel(String.fromCharCode(96 + props.column) + (9 - props.row));
-  lastClickedStore.setLastClicked(String(props.column) + String(props.row));
-}
-
 const props = defineProps<{
   row: number,
   column: number,
 }>()
 
-// const letterLabel = String.fromCharCode(96 + props.column);
-// const numberLabel = 9 - props.row;
+const letterLabel = String.fromCharCode(96 + props.column);
+const numberLabel = 9 - props.row;
+
+function chessSquareClick() {
+  coordinatesStore.addLabel(letterLabel + (numberLabel));
+  lastClickedStore.setLastClicked(String(props.column) + String(props.row));
+}
+
 </script>
 
 <style scoped lang="scss">
@@ -86,10 +87,8 @@ const props = defineProps<{
   }
 }
 
-
 .chessboard-square{
   display: grid;
-  
   transition: ease-in-out 0.3s;
 
   &:hover{
@@ -132,6 +131,5 @@ const props = defineProps<{
     left: 0.3rem;
   }
 }
-
 
 </style>

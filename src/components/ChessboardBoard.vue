@@ -21,6 +21,7 @@
 
 <script setup lang="ts">
 import ChessboardSquare from './ChessboardSquare.vue'
+
 </script>
 
 <style scoped>
@@ -34,4 +35,5 @@ import ChessboardSquare from './ChessboardSquare.vue'
 
   font-family: 'Poppins', sans-serif;
 }
+
 </style>
