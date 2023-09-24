@@ -80,8 +80,8 @@ function handleClear() {
 
 .clear-button{
   font-size: 1.2rem;
-  background-color: aliceblue;
-  border-radius: 10%;
+  background-color: rgb(218, 255, 203);
+  border-radius: 10px;
   border: none;
   padding: 5px;
   cursor: pointer;
@@ -89,6 +89,9 @@ function handleClear() {
   
   &:hover{
     filter: brightness(0.8);
+  }
+  &:active{
+    filter: brightness(0.6);
     transition: none;
   }
 }
